@@ -42,7 +42,7 @@ public class Circle {
 	}
 	
 	/**Set new dimension of a circle**/
-	public void setPosition(double x, double y, double radius) {
+	public void setDimension(double x, double y, double radius) {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;

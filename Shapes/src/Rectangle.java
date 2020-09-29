@@ -49,7 +49,7 @@ public class Rectangle {
 	}
 	
 	/**Set new dimension of a rect**/
-	public void setPosition(double x, double y, double width, double height) {
+	public void setDimension(double x, double y, double width, double height) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
