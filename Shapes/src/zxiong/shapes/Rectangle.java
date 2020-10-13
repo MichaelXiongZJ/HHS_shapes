@@ -1,16 +1,15 @@
 package zxiong.shapes;
 import processing.core.PApplet;
 
-public class Rectangle {
+public class Rectangle extends Shape {
 	
-	private double x, y, width, height;
+	private double width, height;
 	
 	/** Creates a default instance of a Rectangle object with all dimensions set to zero.*
 	 * @post Create a rectangle with all dimensions of zero
 	 */
-	public Rectangle() {
-		x = 0;
-		y = 0;
+	public Rectangle(){
+		super(0,0);
 		width = 0;
 		height = 0;
 	}
@@ -26,8 +25,7 @@ public class Rectangle {
 	 * @post Side affect: Dimension set to imported values
 	 */
 	public Rectangle(double x, double y, double width, double height) {
-		this.x = x;
-		this.y = y;
+		super(x,y);
 		this.width = width;
 		this.height = height;
 	}
@@ -64,6 +62,7 @@ public class Rectangle {
 	 *@param marker The surface PApplet draws on
 	 */
 	public void draw(PApplet marker) {
+		marker.noFill();
 		marker.rect((float)x,(float)y,(float)(x+width),(float)(y+height));
 	}
 	

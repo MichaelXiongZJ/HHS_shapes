@@ -42,8 +42,8 @@ public class Tester extends PApplet {
 	}
 	
 	public void draw() { 
-		background(255);
-		
+	//	background(255);
+/*		
 		rectA.draw(this);
 		rectB.draw(this);
 		rectC.draw(this);
@@ -51,5 +51,9 @@ public class Tester extends PApplet {
 		circleA.draw(this);
 		circleB.draw(this);
 		circleC.draw(this);
+		*/
+		
+		circleB.draw(this);
+
 	}
 }

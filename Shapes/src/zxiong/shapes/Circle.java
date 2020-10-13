@@ -1,16 +1,15 @@
 package zxiong.shapes;
 import processing.core.PApplet;
 
-public class Circle {
+public class Circle extends Shape{
 	
-	private double x, y, radius;
+	private double radius;
 	
 	/** Creates a default instance of a Circle object with all dimensions set to zero.*
 	 * @post Create a circle with all dimensions of zero
 	 */
 	public Circle() {
-		x = 0;
-		y = 0;
+		super(0,0);
 		radius = 0;
 	}
 	
@@ -21,8 +20,7 @@ public class Circle {
 	 * @post Side affect: Dimension set to imported values
 	 */
 	public Circle(double x, double y, double radius) {
-		this.x = x;
-		this.y = y;
+		super(x,y);
 		this.radius = radius;
 	}
 
@@ -58,7 +56,9 @@ public class Circle {
 	 *@param marker The surface PApplet draws on
 	 */
 	public void draw(PApplet marker) {
+		marker.noFill();
 		marker.circle((float)x,(float)y,(float)(radius));
+
 	}
 	
 	/**Set new dimension of a circle
@@ -81,5 +81,6 @@ public class Circle {
 		y = 0;
 		radius = 0;
 	}
+
 
 }
