@@ -6,12 +6,14 @@ import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import zxiong.shapes.Circle;
+import zxiong.shapes.Line;
 import zxiong.shapes.Rectangle;
 
 public class Tester extends PApplet {
 
 	private Rectangle rectA, rectB, rectC;
 	private Circle circleA, circleB, circleC;
+	private Line lineA, lineB;
 	
 	public Tester() {
 		rectA = new Rectangle();
@@ -21,6 +23,9 @@ public class Tester extends PApplet {
 		circleA = new Circle();
 		circleB = new Circle(10,10,20);
 		circleC = new Circle(10,-10, -20);
+		
+		lineA = new Line(30,30,200,100);
+		lineB = new Line(100,100,90,100,true);
 	}
 
 
@@ -43,17 +48,12 @@ public class Tester extends PApplet {
 	
 	public void draw() { 
 	//	background(255);
-/*		
-		rectA.draw(this);
-		rectB.draw(this);
-		rectC.draw(this);
 		
-		circleA.draw(this);
-		circleB.draw(this);
-		circleC.draw(this);
-		*/
+	//	rectB.draw(this);
 		
-		circleB.draw(this);
-
+//		circleB.draw(this);
+		
+		lineA.draw(this);
+//		lineB.draw(this);
 	}
 }

@@ -50,7 +50,7 @@ public class Rectangle extends Shape {
 	 * @return True if point is inside, false if point is outside
 	 */
 	public boolean isPointInside(double x, double y) {
-		if((x>this.x && x<(this.x+width)) && (y>this.y && y<(this.y+height)))
+		if((x>this.getX() && x<(this.getX()+width)) && (y>this.getY() && y<(this.getY()+height)))
 			return true;
 		else
 			return false;	
@@ -62,8 +62,8 @@ public class Rectangle extends Shape {
 	 *@param marker The surface PApplet draws on
 	 */
 	public void draw(PApplet marker) {
-		marker.noFill();
-		marker.rect((float)x,(float)y,(float)(x+width),(float)(y+height));
+		super.draw(marker);
+		marker.rect((float)getX(),(float)getY(),(float)(getX()+width),(float)(getY()+height));
 	}
 	
 	/**Set new dimension of a rectangle
@@ -74,8 +74,8 @@ public class Rectangle extends Shape {
 	 * @post Side affect: the dimensions of the rectangle will be the input values
 	 */
 	public void setDimension(double x, double y, double width, double height) {
-		this.x = x;
-		this.y = y;
+		setX(x);
+		setY(y);
 		this.width = width;
 		this.height = height;
 	}
@@ -84,8 +84,8 @@ public class Rectangle extends Shape {
 	 * @post Side affect: All dimension reset to zero
 	 */
 	public void reset() {
-		x = 0;
-		y = 0;
+		setX(0);
+		setY(0);
 		width = 0;
 		height = 0;
 	}

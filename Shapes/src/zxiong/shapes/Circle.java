@@ -44,7 +44,7 @@ public class Circle extends Shape{
 	 * @return True if point is inside, false if point is outside
 	 */
 	public boolean isPointInside(double x, double y) {
-        if(Math.sqrt(Math.pow(this.x-x, 2.0)+Math.pow(this.y-y, 2.0)) <= radius)
+        if(Math.sqrt(Math.pow(this.getX()-x, 2.0)+Math.pow(this.getY()-y, 2.0)) <= radius)
             return true;
         else
             return false;
@@ -56,8 +56,8 @@ public class Circle extends Shape{
 	 *@param marker The surface PApplet draws on
 	 */
 	public void draw(PApplet marker) {
-		marker.noFill();
-		marker.circle((float)x,(float)y,(float)(radius));
+		super.draw(marker);
+		marker.circle((float)getX(),(float)getY(),(float)(radius));
 
 	}
 	
@@ -68,8 +68,8 @@ public class Circle extends Shape{
 	 * @post Side affect: the dimensions of the circle will be the input values
 	 */
 	public void setDimension(double x, double y, double radius) {
-		this.x = x;
-		this.y = y;
+		setX(x);
+		setY(y);
 		this.radius = radius;
 	}
 	
@@ -77,8 +77,8 @@ public class Circle extends Shape{
 	 * @post Side affect: All dimension reset to zero
 	 */
 	public void reset() {
-		x = 0;
-		y = 0;
+		setX(0);
+		setY(0);
 		radius = 0;
 	}
 
