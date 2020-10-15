@@ -109,11 +109,27 @@ public class Line extends Shape{
 		marker.line((float)getX(),(float)getY(),(float)x2, (float)y2);
 	}
 	
+	/**Rotate the line.
+	 * 
+	 * @param angle added degree.
+	 */
+	public void rotate(double angle) {
+		degree = degree + angle;
+		convertX2();
+		convertY2();
+	}
 	
+	/**set the length of the line
+	 * 
+	 * @param l the new length
+	 */
+	public void setLength(double l) {
+		length = l;
+		convertX2();
+		convertY2();
+	}
 	
-	
-	
-	
+
 	
 	
 	
