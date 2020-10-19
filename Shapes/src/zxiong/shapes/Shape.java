@@ -27,7 +27,9 @@ public abstract class Shape {
 		this.x = x;
 		this.y = y;	
 		strokeColor = Color.BLACK;
+		filled = true;
 		fillColor = Color.WHITE;
+		strokeWidth = 2;
 	}
 	
 	
@@ -53,6 +55,13 @@ public abstract class Shape {
 	 * @post Side affect: All dimension reset to zero.
 	 */
 	public abstract void reset();
+	
+	/**Scale the shape by the input value.
+	 * 
+	 * @param factor the factor value.
+	 */
+	public abstract void scale(double factor);
+	
 	
 	/**Return the x-coordinate of the shape.
 	 * 

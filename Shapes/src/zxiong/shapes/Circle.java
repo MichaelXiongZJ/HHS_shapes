@@ -83,5 +83,11 @@ public class Circle extends Shape{
 		radius = 0;
 	}
 
-
+	/**Scale the circle by the input value.
+	 * 
+	 * @param factor the factor value.
+	 */
+	public void scale(double factor) {
+		radius = radius*factor;
+	}
 }

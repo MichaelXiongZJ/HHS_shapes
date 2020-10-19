@@ -81,6 +81,8 @@ public class Line extends Shape{
 	public void reset() {
 		setX(0);
 		setY(0);
+		x2 = 0;
+		y2 = 0;
 		degree = 0;
 		length = 0;
 	}
@@ -89,14 +91,14 @@ public class Line extends Shape{
 	 * @post Side affect: x2 gets a new value.
 	 */
 	public double convertX2() {		
-		return getX() + (length*Math.cos(Math.toRadians(degree)));
+		return (getX() + (length*Math.cos(Math.toRadians(degree))));
 	}
 	
 	/**calculate the y2 location of the line.
 	 * @post Side affect: y2 gets a new value.
 	 */
 	public double convertY2() {
-		return getX() + (length*Math.sin(Math.toRadians(degree)));
+		return (getY() + (length*Math.sin(Math.toRadians(degree))));
 
 	}
 	
@@ -115,8 +117,8 @@ public class Line extends Shape{
 	 */
 	public void rotate(double angle) {
 		degree = degree + angle;
-		convertX2();
-		convertY2();
+		x2 = convertX2();
+		y2 = convertY2();
 	}
 	
 	/**set the length of the line
@@ -125,13 +127,81 @@ public class Line extends Shape{
 	 */
 	public void setLength(double l) {
 		length = l;
-		convertX2();
-		convertY2();
+		x2 = convertX2();
+		y2 = convertY2();
 	}
 	
+	/**get the intersection x-coordinate of two lines.
+	 * 
+	 * @param the other line.
+	 */
+	public double getIntersectionX(Line other) {
+		double px = 0, upper = 0, lower = 0;
+		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+		
+		upper = (x1*y2 - y1*x2)*(x3 - x4) - (x1 - x2)*(x3*y4-y3*x4);
+		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
+		px = upper/lower;
+		
+		return px;
+	}
 
+	/**get the intersection y-coordinate of two lines.
+	 * 
+	 * @param the other line.
+	 */
+	public double getIntersectionY(Line other) {
+		double py = 0, upper = 0, lower = 0;
+		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+		
+		upper = (x1*y2 - y1*x2)*(y3 - y4) - (y1 - y2)*(x3*y4 - y3*x4);
+		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
+		py = upper/lower;
+		
+		return py;		
+	}
 	
 	
+	/**If the two lines intersect with each other.
+	 * 
+	 * @param other the other line.
+	 * @return true if the two lines intersect.
+	 */
+	public boolean intersects(Line other) {
+		double lower = 0;
+		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+	
+		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
+		
+		if(lower != 0) {
+			if((x1<=getIntersectionX(other)&&getIntersectionX(other)<=x2) || (x1>=getIntersectionX(other)&&getIntersectionX(other)>=x2)) {
+				if((x3<=getIntersectionX(other)&&getIntersectionX(other)<=x4) || (x3>=getIntersectionX(other)&&getIntersectionX(other)>=x4)) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}	
+		
+	}
+
+	/**Scale the Line by the input value.
+	 * 
+	 * @param factor the factor value.
+	 */
+	public void scale(double factor) {
+		length = length*factor;	
+	}
 	
 	
 	

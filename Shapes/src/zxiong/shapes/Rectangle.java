@@ -51,7 +51,7 @@ public class Rectangle extends Shape {
 	 * @return True if point is inside, false if point is outside.
 	 */
 	public boolean isPointInside(double x, double y) {
-		if((x>this.getX() && x<(this.getX()+width)) && (y>this.getY() && y<(this.getY()+height)))
+		if((x>=this.getX() && x<=(this.getX()+width)) && (y>=this.getY() && y<=(this.getY()+height)))
 			return true;
 		else
 			return false;	
@@ -64,7 +64,7 @@ public class Rectangle extends Shape {
 	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
-		marker.rect((float)getX(),(float)getY(),(float)(getX()+width),(float)(getY()+height));
+		marker.rect((float)getX(),(float)getY(),(float)(width),(float)(height));
 	}
 	
 	/**Set new dimension of a rectangle.
@@ -89,6 +89,16 @@ public class Rectangle extends Shape {
 		setY(0);
 		width = 0;
 		height = 0;
+	}
+
+	/**Scale the rectangle by the input value.
+	 * 
+	 * @param factor the factor value.
+	 */
+	public void scale(double factor) {
+		width = width*factor;
+		height = height*factor;
+		
 	}
 
 }
