@@ -13,6 +13,8 @@ public class Line extends Shape{
 	 */
 	public Line() {
 		super(0, 0);
+		x2 = 0;
+		y2 = 0;
 		degree = 0;
 		length = 0;
 	}

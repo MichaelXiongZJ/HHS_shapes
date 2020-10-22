@@ -13,13 +13,16 @@ import zxiong.shapes.Shape;
 
 public class Tester extends PApplet {
 
-	private Rectangle rectA, rectB, rectC;
+	private Rectangle rectA, rectB, rectC, rectB2;
 	private Circle circleA, circleB, circleC;
 	private Line lineA, lineB, lineC, lineD, lineE;
 	
+	private Rectangle[] rectTest = new Rectangle[5];
+	private Line[] lineTest = new Line[5];
+	
 	public Tester() {
 		rectA = new Rectangle();
-		rectB = new Rectangle(50, 50, 400, 400);
+		rectB = new Rectangle(50, 50, 50, 50);
 		rectC = new Rectangle(100, -100, 20, -300);
 		
 		circleA = new Circle();
@@ -27,11 +30,19 @@ public class Tester extends PApplet {
 		circleC = new Circle(10,-10, -20);
 		
 		
-		lineA = new Line(0,0,0,0);
+		lineA = new Line();
 		lineB = new Line(30,30,200,100);
 		lineC = new Line(100,100,90,100,true);
 		lineD = new Line(-100,100,100,-100);
 		lineE = new Line(-100,100,45, 141, true);
+		
+		for (int a=0; a<5; a++) {
+			rectTest[a] = new Rectangle(50+55*a, 50, 50, 50);
+			rectTest[a].setFill(Color.BLUE);
+			
+			lineTest[a] = new Line(50,50,50*a,50,true);
+			lineTest[a].setStroke(Color.GREEN);
+		}
 	}
 
 
@@ -54,33 +65,11 @@ public class Tester extends PApplet {
 	
 	public void draw() { 
 		background(255);
-		
-		lineC.setStroke(Color.BLUE);
-		lineC.setStrokeWidth(5);
-		rectB.setStrokeWidth(2);
-		circleB.setFilled(true);
-		circleB.setFill(Color.RED);
-		rectB.scale(0.5);
-		lineC.scale(0.5);
-		lineB.scale(100);
-		lineC.rotate(45);
-		lineB.rotate(90);
-/*	
-		rectA.draw(this);
-		circleA.draw(this);
-		lineA.draw(this);
-*/
-		
-		rectB.draw(this);
-		circleB.draw(this);
-		lineB.draw(this);
 
-		
-//		rectC.draw(this);
-//		circleC.draw(this);
-		lineC.draw(this);
-
-//		lineD.draw(this);
-//		lineE.draw(this);
+		for (int a=0; a<5; a++) {
+	//		rectTest[a].draw(this);
+			
+			lineTest[a].draw(this);
+		}
 	}
 }
