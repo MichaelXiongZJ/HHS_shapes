@@ -51,7 +51,7 @@ public class Rectangle extends Shape {
 	 * @return True if point is inside, false if point is outside.
 	 */
 	public boolean isPointInside(double x, double y) {
-		if((x>=this.getX() && x<=(this.getX()+width)) && (y>=this.getY() && y<=(this.getY()+height)))
+		if((x>=this.getX()) && (x<=(this.getX()+width)) && (y>=this.getY()) && (y<=(this.getY()+height)))
 			return true;
 		else
 			return false;	

@@ -33,8 +33,8 @@ public class Tester extends PApplet {
 		lineA = new Line();
 		lineB = new Line(30,30,200,100);
 		lineC = new Line(100,100,90,100,true);
-		lineD = new Line(-100,100,100,-100);
-		lineE = new Line(-100,100,45, 141, true);
+		lineD = new Line(50,50,300,50);
+		lineE = new Line(100,0,90, 5, true);
 		
 		for (int a=0; a<5; a++) {
 			rectTest[a] = new Rectangle(50+55*a, 50, 50, 50);
@@ -65,11 +65,35 @@ public class Tester extends PApplet {
 	
 	public void draw() { 
 		background(255);
+		
+	//	if (rectB.isPointInside(200, 200))
+	//		System.out.println("inside");
+	//	else
+	//		System.out.println("not inside");
+	//		System.out.println(rectB);
 
-		for (int a=0; a<5; a++) {
+	//	for (int a=0; a<5; a++) {
 	//		rectTest[a].draw(this);
 			
-			lineTest[a].draw(this);
+	//		lineTest[a].draw(this);
+		
+		lineD.draw(this);
+		lineE.draw(this);
+		
+		if(lineD.intersects(lineE)) {
+			System.out.println("true");
+			System.out.println("x="+lineD.getIntersectionX(lineE));
+			System.out.println("y="+lineD.getIntersectionY(lineE));
+		}
+		else if(!lineD.intersects(lineE)) {
+			System.out.println("false");
+		}
+		
+		
+		
+		
+		
+		
 		}
 	}
-}
+

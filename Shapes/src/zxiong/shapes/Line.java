@@ -52,6 +52,16 @@ public class Line extends Shape{
 		y2 = convertY2();
 	}
 
+	/**set the location of the end point of the line
+	 * 
+	 * @param x2 x-coordinate of the end point
+	 * @param y2 y-coordinate of the end point.
+	 */
+	public void setPoint2(double x2, double y2) {
+		this.y2 = x2;
+		this.x2 = y2;
+	}	
+	
 	//METHODS
 	/**Calculates and returns the parimeter of the line.
 	 * @return The preimeter of the line.
@@ -101,7 +111,6 @@ public class Line extends Shape{
 	 */
 	public double convertY2() {
 		return (getY() + (length*Math.sin(Math.toRadians(degree))));
-
 	}
 	
 	/** Draws a new instance of a line object.
@@ -140,7 +149,7 @@ public class Line extends Shape{
 	public double getIntersectionX(Line other) {
 		double px = 0, upper = 0, lower = 0;
 		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
-		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getY(), y4=other.y2;
 		
 		upper = (x1*y2 - y1*x2)*(x3 - x4) - (x1 - x2)*(x3*y4-y3*x4);
 		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
@@ -156,7 +165,7 @@ public class Line extends Shape{
 	public double getIntersectionY(Line other) {
 		double py = 0, upper = 0, lower = 0;
 		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
-		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getY(), y4=other.y2;
 		
 		upper = (x1*y2 - y1*x2)*(y3 - y4) - (y1 - y2)*(x3*y4 - y3*x4);
 		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
@@ -174,13 +183,13 @@ public class Line extends Shape{
 	public boolean intersects(Line other) {
 		double lower = 0;
 		double x1=getX(), x2=this.x2, y1= getY(), y2=this.y2;
-		double x3=other.getX(), x4=other.x2, y3=other.getX(), y4=other.y2;
+		double x3=other.getX(), x4=other.x2, y3=other.getY(), y4=other.y2;
 	
 		lower = (x1 - x2)*(y3 - y4) - (y1 - y2)*(x3 - x4);
 		
 		if(lower != 0) {
-			if((x1<=getIntersectionX(other)&&getIntersectionX(other)<=x2) || (x1>=getIntersectionX(other)&&getIntersectionX(other)>=x2)) {
-				if((x3<=getIntersectionX(other)&&getIntersectionX(other)<=x4) || (x3>=getIntersectionX(other)&&getIntersectionX(other)>=x4)) {
+			if(((x1<=getIntersectionX(other)&&getIntersectionX(other)<=x2) || (x1>=getIntersectionX(other)&&getIntersectionX(other)>=x2))&&((x3<=getIntersectionX(other)&&getIntersectionX(other)<=x4) || (x3>=getIntersectionX(other)&&getIntersectionX(other)>=x4))) {
+				if((((y1<=getIntersectionY(other)&&getIntersectionY(other)<=y2) || (y1>=getIntersectionY(other)&&getIntersectionY(other)>=y2))&&((y3<=getIntersectionY(other)&&getIntersectionY(other)<=y4) || (y3>=getIntersectionY(other)&&getIntersectionY(other)>=y4)))) {
 					return true;
 				}
 				else {
@@ -197,6 +206,8 @@ public class Line extends Shape{
 		
 	}
 
+	
+	
 	/**Scale the Line by the input value.
 	 * 
 	 * @param factor the factor value.
