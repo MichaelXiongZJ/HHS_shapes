@@ -52,6 +52,7 @@ public class Line extends Shape{
 		y2 = convertY2();
 	}
 
+	//METHODS
 	/**set the location of the end point of the line
 	 * 
 	 * @param x2 x-coordinate of the end point
@@ -62,7 +63,22 @@ public class Line extends Shape{
 		this.x2 = y2;
 	}	
 	
-	//METHODS
+	/**gets value of x2
+	 * 
+	 * @return the x coordinate of point2
+	 */
+	public double getX2() {
+		return x2;
+	}
+	
+	/**gets value of y2
+	 * 
+	 * @return the y coordinate of point2
+	 */
+	public double getY2() {
+		return y2;
+	}
+
 	/**Calculates and returns the parimeter of the line.
 	 * @return The preimeter of the line.
 	 */
@@ -101,6 +117,7 @@ public class Line extends Shape{
 	
 	/**calculate the x2 location of the line.
 	 * @post Side affect: x2 gets a new value.
+	 * @return x2 value
 	 */
 	public double convertX2() {		
 		return (getX() + (length*Math.cos(Math.toRadians(degree))));
@@ -108,6 +125,7 @@ public class Line extends Shape{
 	
 	/**calculate the y2 location of the line.
 	 * @post Side affect: y2 gets a new value.
+	 * @return y2 value
 	 */
 	public double convertY2() {
 		return (getY() + (length*Math.sin(Math.toRadians(degree))));
@@ -144,7 +162,8 @@ public class Line extends Shape{
 	
 	/**get the intersection x-coordinate of two lines.
 	 * 
-	 * @param the other line.
+	 * @param other the other line.
+	 * @return x coordinate of intersection
 	 */
 	public double getIntersectionX(Line other) {
 		double px = 0, upper = 0, lower = 0;
@@ -160,7 +179,8 @@ public class Line extends Shape{
 
 	/**get the intersection y-coordinate of two lines.
 	 * 
-	 * @param the other line.
+	 * @param other the other line.
+	 * @return y coordinate of intersection
 	 */
 	public double getIntersectionY(Line other) {
 		double py = 0, upper = 0, lower = 0;

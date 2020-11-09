@@ -34,6 +34,20 @@ public class DrawingSurface extends PApplet {
 		
 		if(circle1.intersects(rect1)) {
 			System.out.println("Intersection Circle 1");
+			circle1.bounce();
+			rect1.bounce();
+		} 
+		
+		if(circle2.intersects(rect1)) {
+			System.out.println("Intersection Circle 2");
+			circle2.bounce();
+			rect1.bounce();
+		}
+		
+		if(circle1.intersects(circle2)) {
+			System.out.println("Intersection Between Circles");
+			circle1.bounce();
+			circle2.bounce();
 		}
 		
 		if(DEBUG_PRINT) {

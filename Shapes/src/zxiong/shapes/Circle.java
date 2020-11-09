@@ -5,7 +5,8 @@ public class Circle extends Shape{
 	
 	private double radius;
 	
-	/** Creates a default instance of a Circle object with all dimensions set to zero.
+	/** 
+	 * Creates a default instance of a Circle object with all dimensions set to zero.
 	 * @post Create a circle with all dimensions of zero.
 	 */
 	public Circle() {
@@ -13,7 +14,8 @@ public class Circle extends Shape{
 		radius = 0;
 	}
 	
-	/** Creates a new instance of a Circle object.
+	/** 
+	 * Creates a new instance of a Circle object.
 	 * @param x X-coordinate.
 	 * @param y Y-coordinate.
 	 * @param radius Radius of the circle.
@@ -24,21 +26,24 @@ public class Circle extends Shape{
 		this.radius = radius;
 	}
 
-	/**Calculates and returns the parimeter of the Circle.
+	/**
+	 * Calculates and returns the parimeter of the Circle.
 	 * @return The preimeter of the circle.
 	 */
 	public double getPerimeter() {
 		return 2*radius*Math.PI;
 	}
 	
-	/**Calculates and returns the area of the Circle.
+	/**
+	 * Calculates and returns the area of the Circle.
 	 * @return The area of circle.
 	 */
 	public double getArea() {
 		return Math.PI*Math.pow(radius,2);
 	}
 	
-	/**Determines whether the point x,y is contained inside this Circle.
+	/**
+	 * Determines whether the point x,y is contained inside this Circle.
 	 * @param x The X-coordinate of the point.
 	 * @param y The Y-coordinate of the point.
 	 * @return True if point is inside, false if point is outside.
@@ -50,9 +55,10 @@ public class Circle extends Shape{
             return false;
     }
 	
-	/** Draws a new instance of a circle object with the left and right
-	 edges of the circle at x and x + width. The top and bottom edges
-	 are at y and y + height.
+	/** 
+	 * Draws a new instance of a circle object with the left and right 
+	 * edges of the circle at x and x + width. The top and bottom edges
+	 * are at y and y + height.
 	 *@param marker The surface PApplet draws on.
 	 */
 	public void draw(PApplet marker) {
@@ -61,7 +67,8 @@ public class Circle extends Shape{
 
 	}
 	
-	/**Set new dimension of a circle.
+	/**
+	 * Set new dimension of a circle.
 	 * @param x x-coordinate of the circle.
 	 * @param y y-coordinate of the circle.
 	 * @param radius Radius of the circle.
@@ -74,7 +81,8 @@ public class Circle extends Shape{
 		this.radius = radius;
 	}
 	
-	/**Reset all dimension of a circle to zero.
+	/**
+	 * Reset all dimension of a circle to zero.
 	 * @post Side affect: All dimension reset to zero.
 	 */
 	public void reset() {
@@ -83,7 +91,8 @@ public class Circle extends Shape{
 		radius = 0;
 	}
 
-	/**Scale the circle by the input value.
+	/**
+	 * Scale the circle by the input value.
 	 * 
 	 * @param factor the factor value.
 	 */

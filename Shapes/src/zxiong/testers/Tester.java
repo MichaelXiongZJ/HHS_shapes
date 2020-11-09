@@ -9,6 +9,7 @@ import processing.core.PApplet;
 import zxiong.shapes.Circle;
 import zxiong.shapes.Line;
 import zxiong.shapes.Rectangle;
+import zxiong.shapes.RegularPolygon;
 import zxiong.shapes.Shape;
 
 public class Tester extends PApplet {
@@ -16,6 +17,7 @@ public class Tester extends PApplet {
 	private Rectangle rectA, rectB, rectC, rectB2;
 	private Circle circleA, circleB, circleC;
 	private Line lineA, lineB, lineC, lineD, lineE;
+	private RegularPolygon poly,poly1,poly2;
 	
 	private Rectangle[] rectTest = new Rectangle[5];
 	private Line[] lineTest = new Line[5];
@@ -35,6 +37,10 @@ public class Tester extends PApplet {
 		lineC = new Line(100,100,90,100,true);
 		lineD = new Line(50,50,300,50);
 		lineE = new Line(100,0,90, 5, true);
+		
+		poly = new RegularPolygon();
+		poly1 = new RegularPolygon(200,200,4,-100);
+		poly2 = new RegularPolygon(200,200,4,100);
 		
 		for (int a=0; a<5; a++) {
 			rectTest[a] = new Rectangle(50+55*a, 50, 50, 50);
@@ -76,7 +82,7 @@ public class Tester extends PApplet {
 	//		rectTest[a].draw(this);
 			
 	//		lineTest[a].draw(this);
-		
+	/*	
 		lineD.draw(this);
 		lineE.draw(this);
 		
@@ -88,11 +94,13 @@ public class Tester extends PApplet {
 		else if(!lineD.intersects(lineE)) {
 			System.out.println("false");
 		}
+		*/
 		
+	//	poly.draw(this);
+
+		poly1.draw(this);
 		
-		
-		
-		
+		poly2.draw(this);
 		
 		}
 	}
