@@ -128,7 +128,7 @@ public class Line extends Shape{
 	 * @return y2 value
 	 */
 	public double convertY2() {
-		return (getY() + (length*Math.sin(Math.toRadians(degree))));
+		return (getY() - (length*Math.sin(Math.toRadians(degree))));
 	}
 	
 	/** Draws a new instance of a line object.
